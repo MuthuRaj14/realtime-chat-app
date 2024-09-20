@@ -5,11 +5,7 @@ const { default: axios } = require("axios");
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: true }));
-app.use(cors(
-  {
-    origin:["https://realtime-chat-sigma-cyan.vercel.app/"],
-    methods:["POST","GET"],
-    credentials:true}));
+
 app.post("/authenticate", async (req, res) => {
   const { username } = req.body;
 
@@ -30,4 +26,4 @@ app.post("/authenticate", async (req, res) => {
   return res.json({ username: username, secret: "sha256..." });
 });
 
-app.listen("https://realtime-chat-sigma-cyan.vercel.app/);
+app.listen(3001);
